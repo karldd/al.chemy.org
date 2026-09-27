@@ -1,0 +1,179 @@
+@charset "UTF-8";
+
+BODY {
+	/* Set the default font size to be equivalent to 10px */
+	font-size:62.5%;
+	font-family: Helvetica, Arial, sans-serif;
+	background-color: #33CC33;
+	margin: 20px;
+	color: #333333;
+}
+
+H1 {
+	font-size:3em;
+}  
+
+H2 {
+	font-size:2.4em;
+	color: #FFFFFF;
+	font-weight: normal;
+	margin: 0px 0px 10px 0px;
+}
+H3 {
+	font-size:1.8em;
+	margin: 0px 0px 5px 0px;
+}
+	  
+H4 {
+	font-size:1.4em;
+	color: #000000;
+	margin: 0px 0px 5px 0px;
+	clear: both;
+}  
+
+
+P {
+	font-size:1.4em;
+	line-height: 1.4em;
+	margin: 0px 0px 10px 0px;
+}
+
+A {
+	color: #000000;
+}
+
+A:HOVER {
+	color: #FF0000;
+}
+
+
+FORM {
+	padding: 0px;
+	margin: 0px;
+}
+
+FORM P {
+	margin: 0px 0px 5px 0px;
+}
+
+INPUT, SELECT, TH, TD {font-size:1em}
+
+UL {
+	margin: 0px;
+  	padding-left: 2em;
+}
+	
+LI {
+	font-size:1.4em;
+	line-height: 1.4em;
+	list-style-image:url(images/bullet.gif);
+}
+
+LI LI {
+	list-style-image:url(images/arrow.gif);
+}
+
+LI LI, LI P, TD P, BLOCKQUOTE P {
+	font-size:1em;
+}
+
+IMG {
+	border: none;
+}
+
+#header {
+	border-bottom: 1px solid #FFFFFF;
+	padding: 7px 10px 9px 10px;
+	margin-bottom: 20px;
+}
+
+#container {
+	margin-bottom: 10px;
+}
+
+.block {
+	width: 700px;
+	background-color: #FFFFFF;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.block H2 {
+	color: #000000;
+}
+
+.quote {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	margin: 0px 0px 15px 5px;
+	padding-left: 10px;
+	border-left: 1px dotted #999999; 
+}
+
+.quote p {
+	font-size: 1.2em;
+}
+
+.endp {
+	margin: 0px;
+}
+
+.screenshots {
+}
+
+.screenshot {
+	font-size: 1.3em;
+	width: 200px;
+	float:left;
+	margin: 15px 0px 20px 10px;
+}
+
+.screenshot IMG {
+	border: 1px solid #FFFFFF;
+}
+
+.screenshot IMG:HOVER {
+	border: 1px solid #999999;
+}
+
+.inputbox {
+	background-color: #FFFFFF;
+	border: 1px solid #999999;
+	color: #000000;
+	padding: 2px;
+	cursor: text;
+}
+
+.inputbox:hover {
+	border: 1px solid #333333;
+}
+
+INPUT.button {
+	font-size: 1.4em;
+	color: #000000;
+	background-color: #E7E7E7;
+	border: 1px solid #999999;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+INPUT.button:hover{
+	border-color: #333333;
+}
+
+.download {
+	float: left;
+	margin-bottom: 15px;
+}
+
+/* DOCUMENTATION */
+.doclist  LI{
+	font-weight: bold;
+	margin-top: 15px;
+}
+.doclist LI LI{
+	margin-top: 10px;
+}
+.doclist  LI P{
+	font-weight: normal;
+	
+}

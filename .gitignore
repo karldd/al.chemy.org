@@ -1,0 +1,27 @@
+# OS / editor junk
+.DS_Store
+._*
+Thumbs.db
+desktop.ini
+*.swp
+*~
+.idea/
+.vscode/
+
+# Never publish server-side or excluded legacy content
+*.php
+.htaccess
+.dh-diag/
+forum/
+forum.old/
+misc/
+media/
+video/
+japan/
+list/
+survey/
+*.wmv
+*.rar
+
+# Local tooling
+.claude/

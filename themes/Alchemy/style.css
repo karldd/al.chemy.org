@@ -1,0 +1,385 @@
+/*  
+Theme Name: Alchemy
+Theme URI: /
+Description: A custom theme for 
+Version: 1.0
+Author: Karl D.D. Willis
+Author URI: https://karlddwillis.com
+*/
+
+
+
+BODY {
+	/* Set the default font size to be equivalent to 10px */
+	font-size:62.5%;
+	font-family: Helvetica, Arial, sans-serif;
+	background-color: #33CC33;
+	margin: 20px;
+	color: #333333;
+}
+
+H1 {
+	font-size:3em;
+}  
+
+H2 {
+	font-size:2.4em;
+	color: #FFFFFF;
+	font-weight: normal;
+	margin: 0px 0px 10px 0px;
+}
+H2 A{
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+H2 A:HOVER{
+	color: #FFFFFF;
+	text-decoration: underline;
+}
+
+H3 {
+	font-size:1.8em;
+	margin: 0px 0px 5px 0px;
+}
+	  
+H4 {
+	font-size:1.4em;
+	color: #000000;
+	margin: 0px 0px 5px 0px;
+}  
+
+P {
+	font-size:1.4em;
+	line-height: 1.4em;
+	margin: 0px 0px 10px 0px;
+}
+
+A {
+	color: #000000;
+}
+
+A:HOVER {
+	color: #FF0000;
+}
+
+
+FORM {
+	padding: 0px;
+	margin: 0px;
+}
+
+FORM P {
+	margin: 0px 0px 5px 0px;
+}
+
+INPUT, SELECT, TH, TD {font-size:1em}
+
+UL {
+	margin: 0px;
+  	padding-left: 2em;
+	margin-bottom: 10px;
+}
+
+OL{
+	margin: 0px;
+  	padding-left: 2em;
+	margin-bottom: 10px;
+}
+
+OL LI {
+	margin-bottom: 15px;
+}
+
+OL LI P {
+	margin: 2px 0px 0px 0px;
+}
+
+LI {
+	font-size:1.4em;
+	line-height: 1.4em;
+}
+
+LI LI, LI P, TD P, BLOCKQUOTE P {
+	font-size:1em;
+}
+
+UL LI P {
+	margin: 0px 0px 0px 5px;
+}
+
+IMG {
+	border: none;
+}
+
+#header {
+	border-bottom: 1px solid #FFFFFF;
+	padding: 7px 10px 9px 10px;
+	margin-bottom: 20px;
+	background-image: url("/images/header/shapes.gif");
+	background-repeat: no-repeat;
+}
+	
+#page {
+	margin:	0;
+    width: 770px;
+}
+
+#content{
+	float:right;
+	width: 620px;
+	padding: 0px 0px 25px 0px;
+	margin: 0px;
+}
+
+#sidebar{
+	width: 130px;
+	margin: 35px 0px 0px 0px;
+	float:left;
+	padding: 0px;
+	font-size: 1.4em;
+}
+
+#sidebar-ja{
+	width: 130px;
+	margin: 35px 0px 0px 0px;
+	float:left;
+	padding: 0px;
+	font-size: 1.3em;
+}
+
+#sidebar-ja #navigation LI LI{
+	font-size: 0.8em;
+}
+
+#navigation LI A{
+	color:#000000;
+	text-decoration: none;
+}
+
+#navigation LI A:HOVER{
+	color:#FFFFFF;
+}
+
+#navigation UL{
+	padding-left: 0px;
+	text-align: right;
+}
+
+#navigation LI{
+	list-style: none;
+	font-size:1.2em;
+	margin-bottom: 10px;
+	border-right: 1px solid #000000;
+	padding-right: 5px;
+}
+
+#navigation LI:HOVER{
+	border-right: 1px solid #FFFFFF;
+
+}
+
+#navigation LI LI{
+	font-size: 0.9em;
+	margin: 5px 0px;
+	border-right: 1px solid #33CC33;
+}
+
+#navigation LI LI A:HOVER{
+	color:#FFFFFF;
+}
+
+#navigation .current_page_item  A {
+	color:#FFFFFF;
+}
+
+#navigation .current_page_item  LI A {
+	color:#000000;
+}
+
+
+#searchform{
+	margin: 10px 0px;
+}
+
+#footer{
+	color:#9BF985;
+	font-size: 1em;
+	text-align: center;
+}
+
+#footer A{
+	color:#9BF985;
+	text-decoration:none;
+}
+
+#footer A:HOVER{
+	text-decoration:underline;
+}
+
+.block {
+	color: #000000;
+	background-color: #FFFFFF;
+	padding: 10px;
+	margin-bottom: 20px;
+}
+
+.block H2 {
+	color: #000000;
+}
+
+.block UL LI {
+	list-style-image:url(images/bullet.gif);
+}
+
+.block UL LI LI {
+	list-style-image:url(images/arrow.gif);
+}
+
+.block IMG{
+	border: 1px solid #CCCCCC;
+	margin-bottom: 5px;
+}
+
+.block IMG:HOVER {
+	border: 1px solid #000000;
+}
+
+/* Hides from IE-mac \*/
+* html .block {
+	height: 1%;
+}
+/* End hide from IE-mac */
+
+.quote {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	margin: 0px 0px 15px 5px;
+	padding-left: 10px;
+	border-left: 1px dotted #999999; 
+}
+
+.quote p {
+	font-size: 1.2em;
+}
+
+.documentation LI{
+	font-weight: bold;
+}
+
+.documentation LI P {
+	font-weight: normal;
+}
+
+.download H2{
+	background-image: url("/images/download-arrow.gif");
+	background-repeat: no-repeat;
+	height: 50px;
+	padding: 0px 15px 0px 40px;
+	float: left;
+}
+
+.download A, .download A:HOVER {
+	color: #000000;
+}
+
+.japanese {
+	text-align: right;
+	margin-top: 35px;
+	font-size: 1.2em;
+}
+
+.japanese A {
+	text-decoration:none;
+}
+
+.japanese A:HOVER{
+	color: #FFFFFF;
+	text-decoration:underline;
+}
+
+.endp {
+	margin: 0px;
+}
+
+.gallery {
+	margin-top: 5px;
+	width: 295px;
+	float: left;
+}
+
+.gallery P {
+	width: 295px;
+	height: 20px;
+}
+
+.imagespace {
+	margin-right: 10px;
+} 
+
+.postblock {
+	padding-bottom: 0px;
+}
+
+.postblock H3 A {
+	text-decoration: none;
+}
+
+.postblock H3 A:HOVER {
+	text-decoration: underline;
+}
+
+.postend {
+	font-size: 1.1em;
+	padding: 10px 0px 15px 0px;
+}
+
+.inputbox {
+	background-color: #FFFFFF;
+	border: 1px solid #999999;
+	color: #000000;
+	padding: 2px;
+	cursor: text;
+}
+
+.inputbox:hover {
+	border: 1px solid #333333;
+}
+
+INPUT.button {
+	font-size: 1em;
+	color: #000000;
+	background-color: #E7E7E7;
+	border: 1px solid #999999;
+	cursor: pointer;
+	margin-top: 5px;
+}
+
+INPUT.button:hover{
+	border-color: #333333;
+}
+
+
+
+/* Archive notice (added when the site moved to GitHub Pages) */
+#archive-notice {
+	max-width: 750px;
+	margin: 0px 0px 20px 0px;
+	padding: 8px 10px;
+	background-color: #FFFFFF;
+	color: #333333;
+	font-size: 1.4em;
+	line-height: 1.4em;
+}
+
+#archive-notice A {
+	color: #000000;
+}
+
+/* Links between news pages (added when the site moved to GitHub Pages) */
+.postnav {
+	margin: 0px 0px 20px 0px;
+}
+
+.postnav A {
+	color: #FFFFFF;
+}

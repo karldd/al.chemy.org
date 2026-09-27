@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US">
+
+<head profile="http://gmpg.org/xfn/11">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+<title>Module Tutorial | Alchemy</title>
+
+
+<link rel="stylesheet" href="/themes/Alchemy/style.css" type="text/css" media="screen" />
+<script type="text/javascript" src="/themes/Alchemy/header.js"></script>
+
+
+
+ 
+
+<meta name="description" content="Introduction This tutorial will guide you through the process of creating an Alchemy Create or Affect module. We assume you have at least a little experience" />
+</head>
+<body>
+<div id="archive-notice"><strong>UPDATE</strong> &#8211; Alchemy is no longer maintained. This site is for archival purposes. The source code is on <a href="https://github.com/karldd/Alchemy">GitHub</a>.</div>
+
+<div id="header">
+
+
+<a href="/"><img src="/images/alchemy.gif" alt="Alchemy" width="200" height="200" /></a>
+</div>
+
+<div id="page">
+<div id="sidebar">
+<div id="navigation">
+
+<ul> 
+<li class="page_item"><a href="/features/" title="Features">Features</a>
+</li>
+<li class="page_item page_folder"><a href="/download/" title="Download">Download</a>
+</li>
+<li class="page_item"><a href="/videos/" title="Videos">Videos</a>
+</li>
+<li class="page_item"><a href="/gallery/" title="Gallery">Gallery</a>
+</li>
+<li class="page_item"><a href="/documentation/" title="Documentation">Documentation</a>
+</li>
+<li class="page_item"><a href="/about/" title="About">About</a>
+</li>
+<li class="page_item current_page_ancestor page_folder"><a href="/contribute/" title="Contribute">Contribute</a>
+<ul>
+	<li class="page_item current_page_item"><a href="/contribute/module-tutorial/" title="Module Tutorial">Module Tutorial</a>
+	</li>
+	<li class="page_item"><a href="/contribute/developer/" title="Developer">Developer</a>
+	</li>
+	<li class="page_item"><a href="/contribute/translation/" title="Translation">Translation</a>
+	</li>
+</ul>
+</li>
+<li class="page_item"><a href="/workshops/" title="Workshops">Workshops</a>
+</li>
+<li class="page_item"><a href="https://github.com/karldd/Alchemy" title="Source code on GitHub">GitHub</a></li>
+</ul>
+
+</div>
+</div>
+	<div id="content">
+
+		
+		<h2>Module Tutorial</h2>
+			<div class="block">
+				<h3>Introduction</h3>
+<p>This tutorial will guide you through the process of creating an Alchemy <em>Create</em> or <em>Affect</em> module. We assume you have at least a little experience with programming in either Java or something with similar syntax like Javascript, Actionscript, or Processing. We won&#8217;t be writing much code from scratch, but rather adapting a template and compiling a module that we can drop into the Alchemy modules folder and use straight away.</p>
+
+<h3>Setting Up</h3>
+<p>Alchemy is built using Java, so there are several things we first need to install before we can start coding in Java. If you have used Alchemy or other Java applications then chances are you already have the Java Runtime Environment (JRE) installed, this is the Java plugin that <em>runs</em> Java software</p>
+<p>What we need to install to <em>write</em> Java software is the Java Development Kit (JDK). While it is possible to write Java code in a plain old text editor, this tutorial will use an Integrated Development Environment (IDE). An IDE gives us a graphical interface to work with and makes things a bit easier. We will use the NetBeans IDE.</p>
+
+<h3>Downloads</h3>
+<p>We can download both the JDK and the IDE in one hit from this site here: <br />
+<a href="https://www.oracle.com/java/technologies/downloads/"><strong>http://java.sun.com/javase/downloads/index.jsp</strong></a><br />
+Go down to the &#8216;Java SE Development Kit (JDK) Bundles&#8217; section and download the <strong>JDK with NetBeans</strong>.</p>
+<p>Next step is to download the template code for this tutorial:<br />
+<a href="/files/AlchemyModuleTemplate-008.zip"><strong>/files/AlchemyModuleTemplate-008.zip</strong></a> (4.6 MB)<br /></p>
+
+<h3>NetBeans</h3>
+<p>Once you have installed the NetBeans IDE, use the <strong>File > Open Project&#8230;</strong> menu to navigate and open the Alchemy module template code. You just need to select the project folder, not a specific file. <strong>The AlchemyModuleTemplate</strong> project should now appear in the left hand &#8216;Projects&#8217; side bar. You may need to close the Netbeans &#8216;Welcome Window&#8217; to see the side bar. Click on the arrow beside &#8216;Source Packages&#8217; to reveal the source code packages. Next we want to navigate to the &#8216;org.alchemy.create&#8217; package and open the <strong>CreateModule.java</strong> file. Your screen should look something like this:</p>
+<a href="/images/tutorial-module/netbeans.gif"><img src="/images/tutorial-module/netbeans-thumb.gif" alt="Netbeans Interface" /></a>
+
+<h3>Create Module</h3>
+<p>Take a moment to browse this file and read the comments. At the top there are three functions <code>setup(), cleared(), reselect()</code> that relate to application level events. Below that are a series of functions that relate to user input with the mouse (or pen): <code>mouseMoved(), mousePressed(), mouseDragged(), mouseReleased()</code>, all the code for creating shapes is contained within these functions.</p>
+<p>This is a rather boring example, but let&#8217;s run it to see what it does. Click on the <strong>Run Project</strong> button or choose <strong>Run > Run Project</strong> from the top menu. This will compile the CreateModule.java file into a module and start the Alchemy application.</p>
+<a href="/images/tutorial-module/create-module.gif"><img src="/images/tutorial-module/create-module-thumb.gif" alt="Create Module" /></a>
+<p>You can see that this is the Alchemy we know and love, although with only two Create modules, the standard &#8216;Shapes&#8217; module and the new &#8216;Create Module&#8217;. Right now the &#8216;Create Module&#8217; only creates a plain line, but we can spice it up a little quite easily.</p>
+
+<p>For Create modules, most of the action goes down inside the <code>mouseDragged()</code> function, so close the Alchemy application and return to CreateModule.java. The <code>mouseDragged()</code> function is called every time the mouse/pen is dragged, and that works out to be, well, quite a lot! First we start by extracting the x and y location of the mouse with this line: </p>
+<pre class="brush: java; title: ; notranslate" title="">Point p = e.getPoint();</pre>
+<p>A <code>Point</code> object is basically a set of two numbers, one x and one y. We can change the contents of the <code>Point</code> object with code like this:
+<pre class="brush: java; title: ; notranslate" title="">
+p.x = 100;
+p.y = 100;
+</pre>
+<p>This will set the location of both x and y to 100. Hmm&#8230; that is not very useful. Something better would be to add some random chaos :)</p>
+<pre class="brush: java; title: ; notranslate" title="">
+int randomX = (int) math.random(-50, 50);
+int randomY = (int) math.random(-50, 50);
+</pre>
+<p>Here we create two variables called <code>randomX</code> and <code>randomY</code> (you can call them anything actually, but something descriptive is always good) and we assign a random number between -50 and 50 to each. The <code>math.random()</code> is an Alchemy function that gives us the random numbers. The <code>math.random()</code> function returns a floating point (decimal) number, so we have to convert it to a regular integer with the <code>(int)</code> cast.</p>
+<pre class="brush: java; title: ; notranslate" title="">
+p.x += randomX;
+p.y += randomY;
+</pre>
+<p>So if we add the random numbers to the point object with the <code>+=</code> operator, we will get a line that moves away from the current mouse/pen location by some random amount. The next thing we need to do is add the newly randomized point to the current shape and redraw the canvas. The full function should now look like this:</p>
+<pre class="brush: java; title: ; notranslate" title="">
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        if (canvas.hasCreateShapes()) {
+            Point p = e.getPoint();
+            int randomX = (int) math.random(-50, 50);
+            int randomY = (int) math.random(-50, 50);
+            p.x += randomX;
+            p.y += randomY;
+            canvas.getCurrentCreateShape().curveTo(p);
+            canvas.redraw();
+        }
+    }
+</pre>
+<p>In the above code I have made sure to check that there <em>actually is a shape available</em> by wrapping everything in an if statement that calls <code>canvas.hasCreateShapes()</code>. This was way if the user starts drawing a shape, then uses a shortcut key to delete everything, our code won&#8217;t return an error. Run the application again and you should be able to draw something like this:</p>
+<a href="/images/tutorial-module/create-random.gif"><img src="/images/tutorial-module/create-random-thumb.gif" alt="Create Random" /></a>
+<p>If we make a slight change from using curved lines:</p>
+<pre class="brush: java; title: ; notranslate" title="">canvas.getCurrentCreateShape().curveTo(p);</pre>
+<p>To using straight lines:</p>
+<pre class="brush: java; title: ; notranslate" title="">canvas.getCurrentCreateShape().lineTo(p);</pre>
+<p>Then we get a very different look:</p>
+<a href="/images/tutorial-module/create-random-line.gif"><img src="/images/tutorial-module/create-random-line-thumb.gif" alt="Create Random" /></a>
+<p>So that is a very basic overview of how to get up and running with a Create Module. There are many possibilities you can explore, using random numbers is a simple and satisfying one to get started with. It is always good to check out real examples, so browsing over the existing <a href="https://github.com/karldd/Alchemy/tree/master/src/org/alchemy/create">Alchemy module code</a> is a good way to see how more complex stuff is done. You might also like to check out some of the <a href="/docs/">Alchemy developer documentation</a>, in particular the <a href="/docs/org/alchemy/core/AlcCanvas.html">AlcCanvas</a>, <a href="/docs/org/alchemy/core/AlcModule.html">AlcModule</a>, and <a href="/docs/org/alchemy/core/AlcShape.html">AlcShape</a> class documentation.</p>
+
+<h3>Affect Module</h3>
+<p>Next we are going to look at making an Affect module. Affect modules are generally used to change the shapes create by Create modules. For example the Mirror module, takes the shapes created by any Create module and duplicates and flips them. In the NetBeans &#8216;Projects&#8217; side bar, navigate to the  &#8216;org.alchemy.affect&#8217; source package, and open up the <strong>AffectModule.java</strong> file. Things here look much the same as the CreateModule.java file, with the addition of the <code>affect()</code> function. This function is called on active Affect modules, <em>after</em> the active Create module has done its thing. Here is the code from inside the <code>affect()</code> function:</p>
+<pre class="brush: java; title: ; notranslate" title="">
+    @Override
+    protected void affect() {
+        float randomNumber = math.random(1, 25);
+        if (canvas.hasCreateShapes()) {
+            canvas.getCurrentCreateShape().setLineWidth(randomNumber);
+        }
+    }
+</pre>
+<p>That probably looks quite familiar? This code creates a random number between 1 and 25, and sets the line width to that random value. If you run the application now you will get a good idea of how often the <code>affect()</code> function is called: every time the  canvas is redraw. The line should flash between thick and thin at a rapid pace when drawing. Although if you are drawing with solid shapes, this will have no effect at all.</p> 
+
+<h3>Finishing Up</h3>
+<p>So that pretty much covers the basics of making Alchemy modules. The last thing we want to do is go over how to package your module for distribution by changing its name and giving it an icon. Lets say we want to change the name of our newly created module to &#8216;Crazy Shapes&#8217;. The first thing to do is to change the CreateModule.java file to <strong>CrazyShapes.java</strong >, and the name of the class inside the java file as so:</p>
+<pre class="brush: java; title: ; notranslate" title="">
+public class CrazyShapes extends AlcModule {
+</pre>
+<p>Next we need to setup for module compilation, first by changing the &#8216;CreateModule&#8217; folder (inside the modules folder) to &#8216;CrazyShapes&#8217;, then by editing the NetBeans <strong>build.xml</strong> file to copy across the CrazyShapes class files to be compiled as a module:</p>
+<pre class="brush: xml; title: ; notranslate" title="">
+&lt;copy todir=&quot;${basedir}/modules/CrazyShapes/org/alchemy/create&quot;&gt;
+     &lt;fileset dir=&quot;${build.classes.dir}/org/alchemy/create/&quot; includes=&quot;CrazyShapes*&quot; casesensitive=&quot;no&quot; /&gt;
+&lt;/copy&gt;
+</pre>
+<p>Finally we edit the <strong>plugin.xml</strong> file located in the modules/CreateModule folder to specify the name of the module as it appears in the Alchemy menu. The comments in the file outline most of the details; your final file will look like this (changes are highlighted):</p>
+<pre class="brush: xml; auto-links: false; highlight: [4,11,17,18,19,20]; title: ; notranslate" title="">
+&lt;?xml version=&quot;1.0&quot; ?&gt;
+&lt;!DOCTYPE plugin PUBLIC &quot;-//JPF//Java Plug-in Manifest 1.0&quot; &quot;http://jpf.sourceforge.net/plugin_1_0.dtd&quot;&gt;
+
+&lt;plugin id=&quot;org.alchemy.create.CrazyShapes&quot; version=&quot;1.0.0&quot;&gt;
+
+    &lt;requires&gt; 
+        &lt;import plugin-id=&quot;org.alchemy.core&quot;/&gt; 
+    &lt;/requires&gt; 
+    
+     &lt;runtime&gt;
+        &lt;library id=&quot;CrazyShapes&quot; path=&quot;/&quot; type=&quot;code&quot;&gt;
+            &lt;export prefix=&quot;*&quot; /&gt;
+        &lt;/library&gt;
+        &lt;library type=&quot;resources&quot; path=&quot;data/&quot; id=&quot;data&quot; /&gt;
+    &lt;/runtime&gt;
+    
+    &lt;extension plugin-id=&quot;org.alchemy.core&quot; point-id=&quot;Create&quot; id=&quot;CrazyShapes&quot;&gt; 
+        &lt;parameter id=&quot;class&quot; value=&quot;org.alchemy.create.CrazyShapes&quot;/&gt; 
+        &lt;parameter id=&quot;name&quot; value=&quot;Crazy Shapes&quot;/&gt; 
+        &lt;parameter id=&quot;description&quot; value=&quot;Crazy shapes for doing crazy drawings&quot; /&gt;
+        &lt;parameter id=&quot;icon&quot; value=&quot;icon.png&quot; /&gt;
+    &lt;/extension&gt;
+    
+&lt;/plugin&gt;
+</pre>
+<p>Adding an icon to your module is simply a matter of replacing the <strong>icon.png</strong> file in the modules/CrazyShapes/data folder with a 24&#215;24 pixel transparent PNG image.</p>
+
+<h3>Summary</h3>
+<p>You should now be able to run the application and see your new module appear in the popup menu. It may be necessary to delete the old module from the modules folder. Modules will be rebuilt each time you run the application, so at any time you can copy them into the module folder in the &#8216;real&#8217; Alchemy application, send them to friends to try out.</p>
+<p class="endp">We are still developing the API, and working on the module creation process. So by all means give us feedback and let us know if you need help. We hope to cover some more advanced topics in future documentation and tutorials. Good luck and have fun!</p>
+			</div>
+		
+<div id="footer">
+
+
+<p>
+Site content licensed with <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/">Creative Commons</a>
+</p>
+
+</div>
+
+<script type='text/javascript' src='/themes/syntaxhighlighter/scripts/shCore.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='/themes/syntaxhighlighter/scripts/shBrushJava.js?ver=3.0.83c'></script>
+<script type='text/javascript' src='/themes/syntaxhighlighter/scripts/shBrushXml.js?ver=3.0.83c'></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "/themes/syntaxhighlighter/styles/shCore.css?ver=3.0.83c";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "/themes/syntaxhighlighter/styles/shThemeDefault.css?ver=3.0.83c";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+</div>
+</div>
+
+</body>
+</html>
